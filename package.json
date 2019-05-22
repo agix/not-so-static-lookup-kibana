@@ -1,14 +1,9 @@
 {
-  "name": "not-so-static-lookup-kibana",
+  "name": "nsslKibana",
   "version": "0.0.1",
   "description": "Edit static lookup for kibana index-pattern dynamically",
   "main": "index.js",
   "scripts": {
-    "pm2": "node_modules/.bin/pm2",
-    "start": "yarn run pm2 start",
-    "stop": "yarn run pm2 stop $npm_package_name",
-    "dev": "yarn run pm2 kill && yarn run pm2 start -f --watch && yarn run logs",
-    "logs": "yarn run pm2 logs",
     "lint": "./node_modules/.bin/eslint --fix --config ./config/eslintrc.yml index.js lib/*.js lib/**/*.js test/*.js test/**/*.js",
     "lint-report": "yarn run lint ; yarn run lint -o eslint.json -f json",
     "test": "node_modules/.bin/mocha test/**/*.js",
@@ -26,12 +21,11 @@
     "eslint-plugin-prettier": "^3.1.0",
     "mocha": "^6.1.4",
     "nyc": "^14.1.1",
-    "prettier": "^1.17.1"
+    "prettier": "^1.17.1",
+    "dotenv": "^8.0.0"
   },
   "dependencies": {
     "@elastic/elasticsearch": "^7.0.0",
-    "axios": "^0.18.0",
-    "dotenv": "^8.0.0",
-    "pm2": "^3.5.0"
+    "axios": "^0.18.0"
   }
 }
