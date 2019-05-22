@@ -1,0 +1,9 @@
+config/env
+node_modules
+*.log
+.npmrc
+.scannerwork
+.eslint
+.nyc_output
+coverage
+eslint.json

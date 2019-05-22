@@ -1,0 +1,37 @@
+{
+  "name": "not-so-static-lookup-kibana",
+  "version": "0.0.1",
+  "description": "Edit static lookup for kibana index-pattern dynamically",
+  "main": "index.js",
+  "scripts": {
+    "pm2": "node_modules/.bin/pm2",
+    "start": "yarn run pm2 start",
+    "stop": "yarn run pm2 stop $npm_package_name",
+    "dev": "yarn run pm2 kill && yarn run pm2 start -f --watch && yarn run logs",
+    "logs": "yarn run pm2 logs",
+    "lint": "./node_modules/.bin/eslint --fix --config ./config/eslintrc.yml index.js lib/*.js lib/**/*.js test/*.js test/**/*.js",
+    "lint-report": "yarn run lint ; yarn run lint -o eslint.json -f json",
+    "test": "node_modules/.bin/mocha test/**/*.js",
+    "test-report": "node_modules/.bin/nyc -a -x index.js -x ecosystem.config.js -x coverage/ -x test/ --reporter=lcov --reporter=text yarn run test"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "chai-as-promised": "^7.1.1",
+    "chai-spies": "^1.0.0",
+    "eslint": "^5.16.0",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-config-prettier": "^4.3.0",
+    "eslint-plugin-import": "^2.17.2",
+    "eslint-plugin-prettier": "^3.1.0",
+    "mocha": "^6.1.4",
+    "nyc": "^14.1.1",
+    "prettier": "^1.17.1"
+  },
+  "dependencies": {
+    "@elastic/elasticsearch": "^7.0.0",
+    "axios": "^0.18.0",
+    "dotenv": "^8.0.0",
+    "pm2": "^3.5.0"
+  }
+}

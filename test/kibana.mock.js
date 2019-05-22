@@ -1,0 +1,116 @@
+module.exports = {
+  invalidGet: {
+    page: 1,
+    per_page: 20,
+    total: 0,
+    saved_objects: [],
+  },
+  normalGet: {
+    page: 1,
+    per_page: 20,
+    total: 1,
+    saved_objects: [
+      {
+        type: 'index-pattern',
+        id: '98e908c0-6695-11e9-bd10-cf1d074cfdaa',
+        attributes: {
+          title: 'test',
+          timeFieldName: 'date',
+          fields: JSON.stringify([
+            {
+              name: '_id',
+              type: 'string',
+              count: 0,
+              scripted: false,
+              searchable: true,
+              aggregatable: true,
+              readFromDocValues: false,
+            },
+            {
+              name: '_index',
+              type: 'string',
+              count: 0,
+              scripted: false,
+              searchable: true,
+              aggregatable: true,
+              readFromDocValues: false,
+            },
+            {
+              name: '_score',
+              type: 'number',
+              count: 0,
+              scripted: false,
+              searchable: false,
+              aggregatable: false,
+              readFromDocValues: false,
+            },
+            {
+              name: '_source',
+              type: '_source',
+              count: 0,
+              scripted: false,
+              searchable: false,
+              aggregatable: false,
+              readFromDocValues: false,
+            },
+            {
+              name: '_type',
+              type: 'string',
+              count: 0,
+              scripted: false,
+              searchable: true,
+              aggregatable: true,
+              readFromDocValues: false,
+            },
+            {
+              name: 'comment',
+              type: 'string',
+              count: 0,
+              scripted: false,
+              searchable: true,
+              aggregatable: false,
+              readFromDocValues: false,
+            },
+            {
+              name: 'data.activity._id',
+              type: 'string',
+              count: 0,
+              scripted: false,
+              searchable: true,
+              aggregatable: true,
+              readFromDocValues: true,
+            },
+            {
+              name: 'type',
+              type: 'string',
+              count: 0,
+              scripted: false,
+              searchable: true,
+              aggregatable: true,
+              readFromDocValues: true,
+            },
+          ]),
+          fieldFormatMap: JSON.stringify({
+            type: {
+              id: 'static_lookup',
+              params: {
+                lookupEntries: [
+                  {
+                    key: 'ERR1',
+                    value: 'This is a big problem',
+                  },
+                ],
+              },
+            },
+          }),
+        },
+        references: [],
+        migrationVersion: {
+          'index-pattern': '6.5.0',
+        },
+        updated_at: '2019-05-22T18:13:46.630Z',
+        version: 'Wzk0LDFd',
+      },
+    ],
+  },
+};
