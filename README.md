@@ -70,3 +70,9 @@ If the field exists as a string in the index-pattern, the `lookupEntries` array 
 Instead of setting the third parameter as the new `lookupEntries` for the `fieldName`, it adds each lookup entry (`{key, value}`) in the existent lookup.
 
 If key already exists, the old value is replaced.
+
+### refreshIndexPattern
+
+Only works for kibana adapter for now (throw `UnsupportedFunctionError` for es adapter).
+
+It works on existent index-pattern only, and refresh it as if you clicked on the `Refresh fields list` button on http://<your-kibana-url>:5601/app/kibana#/management/kibana/index_patterns/

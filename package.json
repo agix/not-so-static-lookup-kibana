@@ -1,7 +1,8 @@
 {
   "name": "nssl-kibana",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Edit static lookup for kibana index-pattern dynamically",
+  "keywords": ["kibana", "static lookup", "index-pattern", "index pattern"],
   "main": "index.js",
   "scripts": {
     "lint": "./node_modules/.bin/eslint --fix --config ./config/eslintrc.yml index.js lib/*.js lib/**/*.js test/*.js test/**/*.js",
