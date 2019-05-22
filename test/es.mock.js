@@ -1,23 +1,22 @@
 module.exports = {
   invalidGet: {
-  "took": 0,
-  "timed_out": false,
-  "_shards": {
-    "total": 1,
-    "successful": 1,
-    "skipped": 0,
-    "failed": 0
-  },
-  "hits": {
-    "total": {
-      "value": 0,
-      "relation": "eq"
+    took: 0,
+    timed_out: false,
+    _shards: {
+      total: 1,
+      successful: 1,
+      skipped: 0,
+      failed: 0,
     },
-    "max_score": null,
-    "hits": []
-  }
-}
-,
+    hits: {
+      total: {
+        value: 0,
+        relation: 'eq',
+      },
+      max_score: null,
+      hits: [],
+    },
+  },
   normalGet: {
     took: 0,
     timed_out: false,

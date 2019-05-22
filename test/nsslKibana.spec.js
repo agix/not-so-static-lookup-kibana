@@ -28,22 +28,12 @@ const fakeAxiosCreate = mockName => ({
 });
 
 const fakeESSearch = async mockName => {
-  return {warnings: null, statusCode: 200, body: esMock[mockName]};
+  return { warnings: null, statusCode: 200, body: esMock[mockName] };
 };
 
 const fakeESUpdate = async () => {
   return {};
 };
-
-const fakeESClientConstructor = mockName => {
-  console.log('coucou')
-  return ({
-    search: fakeESSearch.bind(this, mockName),
-    update: fakeESUpdate.bind(this, mockName),
-  })
-}
-
-const sandbox = chai.spy.sandbox();
 
 describe('nsslKibana - kibana adapter', async () => {
   describe('getIndexPattern', async () => {
@@ -67,10 +57,7 @@ describe('nsslKibana - kibana adapter', async () => {
       chai.spy.on(axios, 'create', fakeAxiosCreate.bind(this, mockName));
       await expect(
         (async () => {
-          const { id, attributes } = await nsslKibana.getIndexPattern(
-            'invalid',
-            { client: 'kibana' },
-          );
+          await nsslKibana.getIndexPattern('invalid', { client: 'kibana' });
         })(),
       ).to.eventually.be.rejectedWith(IndexPatternNotFoundError);
       chai.spy.restore(axios);
@@ -87,29 +74,28 @@ describe('nsslKibana - es adapter', async () => {
         client: {
           search: fakeESSearch.bind(this, mockName),
           update: fakeESUpdate.bind(this, mockName),
-          name: 'elasticsearch-js'
-        }
+          name: 'elasticsearch-js',
+        },
       });
       id.should.equal('98e908c0-6695-11e9-bd10-cf1d074cfdaa');
       attributes.title.should.equal('test');
       attributes.fields.length.should.equal(8);
       should.exist(attributes.fieldFormatMap.type);
-
     });
 
     it('invalid indexPattern should throw IndexPatternNotFoundError', async () => {
       const mockName = 'invalidGet';
-      await expect((async () => {
-
-        const {id, attributes} = await nsslKibana.getIndexPattern('invalid', {
-        client: {
-          search: fakeESSearch.bind(this, mockName),
-          update: fakeESUpdate.bind(this, mockName),
-          name: 'elasticsearch-js'
-        }
-      });
-
-      })()).to.eventually.be.rejectedWith(IndexPatternNotFoundError);
+      await expect(
+        (async () => {
+          await nsslKibana.getIndexPattern('invalid', {
+            client: {
+              search: fakeESSearch.bind(this, mockName),
+              update: fakeESUpdate.bind(this, mockName),
+              name: 'elasticsearch-js',
+            },
+          });
+        })(),
+      ).to.eventually.be.rejectedWith(IndexPatternNotFoundError);
     });
   });
 });
