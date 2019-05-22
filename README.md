@@ -11,7 +11,7 @@ Each function take as last parameter an optional `Connection` option (default to
 You can instead pass your own elasticsearch client with different version and change the index to whatever kibana index is.
 
 ```
-const nsslKibana = require('nsslKibana');
+const nsslKibana = require('nssl-kibana');
 const { Client } = require('@elastic/elasticsearch');
 const esClient = new Client({
   node: 'http://localhost:9200',
@@ -25,7 +25,7 @@ const esClient = new Client({
 If you prefer to communicate via kibana api, you can pass an axiosInstance as a client.
 
 ```
-const nsslKibana = require('nsslKibana');
+const nsslKibana = require('nssl-kibana');
 const axios = require('axios');
 
 const axiosInstance =  axios.create({
@@ -33,7 +33,7 @@ const axiosInstance =  axios.create({
   timeout: 5000,
   headers: {
     'Content-Type': 'application/json',
-    'kbn-xsrf': 'nsslKibana',
+    'kbn-xsrf': 'nssl-kibana',
     'Authorization': 'Bearer my-super-secret',
   },
 });

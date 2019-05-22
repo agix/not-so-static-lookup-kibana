@@ -1,5 +1,5 @@
 {
-  "name": "nsslKibana",
+  "name": "nssl-kibana",
   "version": "0.0.1",
   "description": "Edit static lookup for kibana index-pattern dynamically",
   "main": "index.js",
